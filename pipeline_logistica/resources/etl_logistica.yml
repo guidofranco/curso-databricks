@@ -1,7 +1,7 @@
 resources:
   jobs:
     etl_pipeline:
-      name: "ETL Logistica - ${bundle.target}"
+      name: "ETL Logistica 2 - ${bundle.target}"
       tasks:
         - task_key: for
           for_each_task:
