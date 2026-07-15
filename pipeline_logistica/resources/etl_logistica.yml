@@ -10,7 +10,7 @@ resources:
             task:
               task_key: for_iteration
               notebook_task:
-                notebook_path: ${workspace.file_path}/notebooks/00_extr_carga_param
+                notebook_path: ${workspace.file_path}/src/00_extr_carga_param
                 base_parameters:
                   dataset: "{{input}}"
                 source: WORKSPACE
@@ -19,14 +19,14 @@ resources:
           depends_on:
             - task_key: for
           notebook_task:
-            notebook_path: ${workspace.file_path}/notebooks/01_equipos_silver
+            notebook_path: ${workspace.file_path}/src/01_equipos_silver
             source: WORKSPACE
         
         - task_key: ordenes_silver
           depends_on:
             - task_key: for
           notebook_task:
-            notebook_path: ${workspace.file_path}/notebooks/01_ordenes_silver
+            notebook_path: ${workspace.file_path}/src/01_ordenes_silver
             source: WORKSPACE
         
         - task_key: ordenes_enriched
@@ -34,14 +34,14 @@ resources:
             - task_key: equipos_silver
             - task_key: ordenes_silver
           notebook_task:
-            notebook_path: ${workspace.file_path}/notebooks/02_gold
+            notebook_path: ${workspace.file_path}/src/02_gold
             source: WORKSPACE
         
         - task_key: ordenes_metrics
           depends_on:
             - task_key: ordenes_enriched
           notebook_task:
-            notebook_path: ${workspace.file_path}/notebooks/02_gold_metrics
+            notebook_path: ${workspace.file_path}/src/02_gold_metrics
             source: WORKSPACE
       
       queue:
