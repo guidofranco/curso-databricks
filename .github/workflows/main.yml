@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./etlbundle  # Ejecuta comandos desde aquí    
+        working-directory: ./pipeline_logistica  # Ejecuta comandos desde aquí    
     steps:
       - uses: actions/checkout@v3
       
